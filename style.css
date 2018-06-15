@@ -1,0 +1,111 @@
+body{
+background-image: url("./img/background2.jpg");
+    background-size: cover;
+    font-family: sans-serif;
+}
+.content{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    justify-content: center;
+}
+.scoreboard{
+    justify-content: center;
+
+    width: 30%;
+    height: 14%;
+    margin: 0 auto;
+    position: relative;
+    background-image: url("./img/board.jpeg");
+    border: 5px solid #771f00 ;
+    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+}
+.scoreboard h1{
+    position: relative;
+    text-align: center;
+    padding-top: 1%;
+    margin: 0;
+    color: #771f00;
+}
+
+
+.score{
+    display: flex;
+    justify-content: center;
+
+}
+
+.battleground{
+
+    position: relative;
+    width: 500px;
+    height: 40%;
+
+}
+.chosen{
+
+    margin-top: 5%;
+    margin-bottom: 5%;
+    height: 150px;
+    width: 15%  ;
+    border: solid 10px #771f00;
+    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+}
+#leftCh{
+    float:left;
+    margin-left: 10%;
+
+}
+#rightCh{
+    float:right;
+    margin-right: 10%;
+}
+
+
+.playArea{
+    width: 100%;
+    height: 50%;
+    top:50%;
+    margin: 0 auto;
+
+}
+.playArea h1{
+    text-align: center;
+    color: #771f00;
+    font-weight: bold;
+    font-size: 250%;
+    margin-top: 20%;
+    text-shadow: 0 0 3px #000000;
+
+}
+
+
+.playButtons{
+    width:100%;
+    display: flex;
+    justify-content:center;
+}
+.playButtons button{
+    display: inline-block;
+    width: 20%;
+    height: 20%;
+    background-image: url("./img/board.jpeg");
+    padding:1rem 1rem;
+    margin:0 1rem;
+    transition:all .5s ease;
+    color:#41403E;
+    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+    border:solid 7px #41403E;
+    box-shadow: 20px 38px 34px -26px hsla(0,0%,0%,.2);
+
+}
+
+
+
+
+.playButtons img{
+    width: 50%;
+    height: auto;
+}

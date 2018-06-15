@@ -3,77 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <title>Rock Paper Scissors</title>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <script>
+<div class="content">
 
+    <div class="scoreboard">
+        <h1>Score</h1>
 
-        function computerPlay() {
-            const all = ['Rock', 'Paper', 'Scissors'];
-            const randomChoice = Math.floor(Math.random()*3);
-            return all[randomChoice];
-        }
-        let playerScore = 0;
-        let compScore = 0;
-        function playRound(playerSelection, computerSelection) {
-            const playerSelLow = playerSelection.toLowerCase();
-            const firstPlayerLetter = playerSelLow.charAt(0);
-            const playerSelShow = firstPlayerLetter.toUpperCase()+playerSelLow.substring(1);
+        <div class="score">
+            <h1 id="compScore">0</h1>
+            <h1>:</h1>
+            <h1 id="playScore">0</h1>
+        </div>
+    </div>
+    <div class="battlefield">
 
+        <div class="chosen" id="leftCh">
 
-            const drawMessage = `Draw!`;
+        </div>
 
+        <div class="chosen" id="rightCh">
 
-            if (playerSelShow == computerSelection){
-                return console.log(drawMessage);
-            }else if (playerSelShow == 'Rock'){
-                if (computerSelection == 'Scissors'){
-                    return playerWins();
-                }else return compWins();
-            }else if(playerSelShow == 'Paper'){
-                if(computerSelection== 'Rock'){
-                    return playerWins();
-                }else return compWins();
-            }else if (playerSelShow ==  'Scissors'){
-                if (computerSelection == 'Paper'){
-                    return playerWins();
-                }else return compWins();
-            }else console.log('Oops! Something went wrong. You was supposed to type Rock, Paper or Scissors.')
-            function playerWins() {
-                i++;
-                ++playerScore;
-                const winMessage = `You WIN! ${playerSelShow} beats ${computerSelection}. Score: ${playerScore} : ${compScore}`;
-                console.log(winMessage);
-            }
-            function compWins() {
-                i++;
-                ++compScore;
-                const loseMessage = `You LOSE! ${computerSelection} beats ${playerSelShow}. Score: ${playerScore} : ${compScore}`;
-                console.log(loseMessage);
-            }
-        }
-let testScore =0;
-function test() {
-    ++testScore;
-    console.log(testScore);
-}
+        </div>
+    </div>
+    <div class="playArea">
+        <h1>Choose your destiny!</h1>
+        <div class="playButtons">
 
+            <button class="playChoice">
+                <img src="./img/rock.png" alt="Камень">
+            </button>
+            <button class="playChoice">
+                <img src="./img/scissors.png" alt="Нажніцы">
+            </button>
+            <button class="playChoice">
+                <img src="./img/paper.png" alt="Бумага">
+            </button>
+        </div>
+    </div>
+</div>
 
-        function game() {
-
-            for(i=0; i<5; ){
-                const playerSelection = window.prompt('Type Rock, Paper or Scissors.');
-                const computerSelection = computerPlay();
-                playRound(playerSelection, computerSelection);
-            }
-            const endGameWinMessage = 'The game is over. You WON!'
-            const endGameLoseMessage = 'The game is over. You LOSE!'
-            if (playerScore>compScore){
-                console.log(endGameWinMessage);
-            }else console.log(endGameLoseMessage);
-        }
-        game();
-
-    </script>
 </body>
 </html>
