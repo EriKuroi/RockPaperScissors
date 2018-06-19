@@ -10,6 +10,8 @@ background-image: url("./img/background2.jpg");
     width:100%;
     height:100%;
     justify-content: center;
+    text-align: center;
+
 }
 .scoreboard{
     justify-content: center;
@@ -37,30 +39,50 @@ background-image: url("./img/background2.jpg");
 
 }
 
-.battleground{
+.battlefield{
 
     position: relative;
-    width: 500px;
+    width: 100%;
     height: 40%;
+    justify-content: center;
 
+
+}
+.chosen img{
+    width: 50%;
+    height: auto;
 }
 .chosen{
 
     margin-top: 5%;
     margin-bottom: 5%;
-    height: 150px;
-    width: 15%  ;
-    border: solid 10px #771f00;
+    height: 200px;
+    width: 30%  ;
+    border: solid 10px #41403E;
     border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+    text-align: center;
 }
-#leftCh{
+.leftCh{
     float:left;
-    margin-left: 10%;
+    margin-left: 17%;
 
 }
-#rightCh{
+.rightCh{
     float:right;
-    margin-right: 10%;
+    margin-right: 17%;
+
+}
+.winner{
+    border: solid 10px #771f00;
+}
+.won{
+
+    height: 256px;
+        top: 25%;
+        position: relative;
+    width: 35%  ;
+    margin-left: 30%;
+
 }
 
 
@@ -71,19 +93,25 @@ background-image: url("./img/background2.jpg");
     margin: 0 auto;
 
 }
-.playArea h1{
+#info{
     text-align: center;
     color: #771f00;
-    font-weight: bold;
     font-size: 250%;
-    margin-top: 20%;
+    width: 100%;
+    margin: 0 auto;
     text-shadow: 0 0 3px #000000;
 
+}
+.hidden{
+    display: none;
 }
 
 
 .playButtons{
     width:100%;
+    height: 100%;
+    top:25%;
+    margin: 0 auto;
     display: flex;
     justify-content:center;
 }
@@ -92,7 +120,7 @@ background-image: url("./img/background2.jpg");
     width: 20%;
     height: 20%;
     background-image: url("./img/board.jpeg");
-    padding:1rem 1rem;
+    text-align: center;
     margin:0 1rem;
     transition:all .5s ease;
     color:#41403E;
@@ -106,6 +134,22 @@ background-image: url("./img/background2.jpg");
 
 
 .playButtons img{
-    width: 50%;
+    width: 49%;
     height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+#again{
+    padding:1rem 1rem;
+    margin:5% 40%;
+    transition:all .5s ease;
+    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+    border:solid 7px #41403E;
+    box-shadow: 20px 38px 34px -26px hsla(0,0%,0%,.2);
+    text-align: center;
+    color: #41403E;
+    font-size: 250%;
+    background-image: url("./img/board.jpeg");
+
 }

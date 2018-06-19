@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="content">
+<div class="content" id="all">
 
     <div class="scoreboard">
         <h1>Score</h1>
@@ -18,31 +18,33 @@
             <h1 id="playScore">0</h1>
         </div>
     </div>
-    <div class="battlefield">
+    <div class="battlefield" id="field">
 
-        <div class="chosen" id="leftCh">
+        <div class="chosen leftCh" id="left">
+            <img id="compImg" src="./img/question.png">
 
         </div>
 
-        <div class="chosen" id="rightCh">
+        <div class="chosen rightCh" id="right">
+            <img id="playImg" src="./img/question.png">
 
         </div>
     </div>
-    <div class="playArea">
-        <h1>Choose your destiny!</h1>
-        <div class="playButtons">
 
-            <button class="playChoice">
+        <h1 id="info">Choose your destiny!</h1>
+        <div class="playButtons" id="buttonsArea">
+
+            <button class="playChoice" id="rock">
                 <img src="./img/rock.png" alt="Камень">
             </button>
-            <button class="playChoice">
+            <button class="playChoice" id="sciss">
                 <img src="./img/scissors.png" alt="Нажніцы">
             </button>
-            <button class="playChoice">
+            <button class="playChoice" id="paper">
                 <img src="./img/paper.png" alt="Бумага">
             </button>
         </div>
-    </div>
+
 </div>
 
 </body>

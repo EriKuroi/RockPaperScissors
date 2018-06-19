@@ -1,109 +1,118 @@
-const variations = [
-    'SP',
-    'PR',
-    'RS'
-];
+window.addEventListener("DOMContentLoaded", function () {
 
+    const variations = [
+        'SP',
+        'PR',
+        'RS'
+    ];
 
-function checkPlayerWin(playerSelection, computerSelection){
-    return variations.includes(playerSelection+computerSelection);
-}
-
-
-function computerPlay() {
-    const all = ['R', 'P', 'S'];
-    const randomChoice = Math.floor(Math.random() * 3);
-    return all[randomChoice];
-   }
-function draw() {
-    console.log('Draw!')
-}
-function playerWin() {
-    console.log('You Win!')
-}
-function compWin() {
-    console.log('You lose!')
-}
-
-function playGame() {
-
-    const playerSelection = window.prompt('Type Rock, Paper or Scissors.');
-    const computerSelection = computerPlay();
-    console.log(`comp ${computerSelection}, you ${playerSelection}`)
-   if (playerSelection == computerSelection){
-     draw();
-   } else checkPlayerWin()? playerWin() : compWin()
-}
-
-playGame();
-
-/*
-
-function playRound(playerSelection, computerSelection) {
-    let playerScore = 0;
-    let compScore = 0;
-
-
-    const playerSelShow = playerSelection.toUpperCase;
-
-
-    const drawMessage = `Draw!`;
-
-
-    if (playerSelShow == computerSelection) {
-        return console.log(drawMessage);
-    } else if (playerSelShow == 'R') {
-
-        return computerSelection == 'S' ? playerWins() : compWins();
-
-    } else if (playerSelShow == 'P') {
-        if (computerSelection == 'R') {
-            return playerWins();
-        } else return compWins();
-    } else if (playerSelShow == 'S') {
-        if (computerSelection == 'P') {
-            return playerWins();
-        } else return compWins();
-    } else console.log('Oops! Something went wrong. You was supposed to type Rock, Paper or Scissors.')
-
-    function playerWins() {
-        i++;
-        ++playerScore;
-        const winMessage = `You WIN! ${playerSelShow} beats ${computerSelection}. Score: ${playerScore} : ${compScore}`;
-        console.log(winMessage);
+    function checkPlayerWin(playerSelection, computerSelection) {
+        return variations.includes(playerSelection + computerSelection);
     }
 
-    function compWins() {
-        i++;
-        ++compScore;
-        const loseMessage = `You LOSE! ${computerSelection} beats ${playerSelShow}. Score: ${playerScore} : ${compScore}`;
-        console.log(loseMessage);
+    function computerPlay() {
+        const all = ['R', 'S', 'P'];
+        const randomChoice = Math.floor(Math.random() * 3);
+        return all[randomChoice];
     }
-}
 
-let testScore = 0;
+    function draw() {
+        document.getElementById("info").innerHTML = "Draw!";
+    }
 
-function test() {
-    ++testScore;
-    console.log(testScore);
-}
+    function playerWin() {
+        document.getElementById("info").innerHTML = "You Win!";
+        const addPScore = (function () {
+            let counter = Number(document.getElementById("playScore").innerHTML);
+            return function () {
+                counter += 1;
+                return counter
+            }
+        })();
+        document.getElementById("playScore").innerHTML = addPScore();
+        document.getElementById('right').classList.add('winner');
 
+    }
 
-/*
-function game() {
+    function compWin() {
+        document.getElementById("info").innerHTML = "You Lose!";
+        const addCScore = (function () {
+            let counter = Number(document.getElementById("compScore").innerHTML);
+            return function () {
+                counter += 1;
+                return counter
+            }
+        })();
+        document.getElementById("compScore").innerHTML = addCScore();
+        document.getElementById('left').classList.add('winner');
 
+    }
 
-    for (i = 0; i < 5;) {
-        const playerSelection = window.prompt('Type Rock, Paper or Scissors.');
+    function showPlayerChoice(playerSelection, computerSelection) {
+        const all = ['R', 'S', 'P'];
+        const variantP = all.indexOf(playerSelection);
+        const variantC = all.indexOf(computerSelection);
+        const imgSrc = ['./img/rock.png', './img/scissors.png', './img/paper.png'];
+        const replacingPlayImage = () => document.getElementById("playImg").src = `${imgSrc[variantP]}`;
+        const replacingCompImage = () => document.getElementById("compImg").src = `${imgSrc[variantC]}`;
+        replacingPlayImage();
+        replacingCompImage();
+
+    }
+
+    function resultGameShow(result) {
+        document.getElementById("info").innerHTML = `The game is over! You ${result}!`;
+
+    }
+
+    function gameOver() {
+        const cScore = document.getElementById('compScore').innerHTML;
+        const pScore = document.getElementById('playScore').innerHTML;
+        if (cScore == 5 || pScore == 5) {
+            pScore == 5 ? resultGameShow('Won') : resultGameShow('Lost');
+           // document.getElementById('field').classList.add('hidden');
+            document.getElementById('buttonsArea').classList.remove('playButtons');
+            document.getElementById('buttonsArea').classList.add('hidden');
+            let again = document.createElement('button');
+            again.id = 'again';
+            again.textContent = 'Try again?';
+            document.getElementById('all').appendChild(again);
+            document.getElementById("again").addEventListener("click", function () {
+                location.reload();
+            });
+
+        }
+
+    }
+
+    function playGame(playerChoose) {
+        const playerSelection = playerChoose;
         const computerSelection = computerPlay();
-        playRound(playerSelection, computerSelection);
-    }
-    const endGameWinMessage = 'The game is over. You WON!'
-    const endGameLoseMessage = 'The game is over. You LOSE!'
-    if (playerScore > compScore) {
-        console.log(endGameWinMessage);
-    } else console.log(endGameLoseMessage);
-}
+        showPlayerChoice(playerSelection, computerSelection);
 
-game();
- */
+        if (playerSelection == computerSelection) {
+            draw();
+        } else checkPlayerWin(playerSelection, computerSelection) ? playerWin() : compWin();
+
+        gameOver();
+    }
+
+
+    document.getElementById("rock").addEventListener("click", function () {
+        document.getElementById('right').classList.remove('winner');
+        document.getElementById('left').classList.remove('winner');
+        playGame('R');
+    });
+
+    document.getElementById("sciss").addEventListener("click", function () {
+        document.getElementById('right').classList.remove('winner');
+        document.getElementById('left').classList.remove('winner');
+        playGame('S');
+    });
+    document.getElementById("paper").addEventListener("click", function () {
+        document.getElementById('right').classList.remove('winner');
+        document.getElementById('left').classList.remove('winner');
+        playGame('P');
+    });
+}, false);
+
